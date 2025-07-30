@@ -123,7 +123,7 @@
 
 .dark {
    /* Background utama - light gray gelap (dari 12% ke 18%) */
-    --background: hsl(0 0% 18%);
+    --background: hsl(0, 0%, 28%);
     --foreground: hsl(0 0% 92%);
     
     /* Card background - light gray medium (dari 16% ke 24%) */
