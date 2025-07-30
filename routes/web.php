@@ -11,13 +11,13 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
         $user = auth()->user();
-        $todosQuery = $user->isAdmin() ? \App\Models\Todo::query() : $user->todos();
+        $baseQuery = $user->isAdmin() ? \App\Models\Todo::query() : $user->todos();
         
         $stats = [
-            'total' => $todosQuery->count(),
-            'completed' => $todosQuery->where('completed', true)->count(),
-            'incomplete' => $todosQuery->where('completed', false)->count(),
-            'overdue' => $todosQuery->where('due_date', '<', now())->where('completed', false)->count(),
+            'total' => (clone $baseQuery)->count(),
+            'completed' => (clone $baseQuery)->where('completed', true)->count(),
+            'incomplete' => (clone $baseQuery)->where('completed', false)->count(),
+            'overdue' => (clone $baseQuery)->where('due_date', '<', now())->where('completed', false)->count(),
         ];
         
         return Inertia::render('Dashboard', [
