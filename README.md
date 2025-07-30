@@ -299,10 +299,6 @@ icacls bootstrap/cache /grant Users:F /T
 4. Push ke branch (`git push origin feature/amazing-feature`)
 5. Buat Pull Request
 
-## 📄 License
-
-Project ini menggunakan [MIT License](LICENSE).
-
 ## 👨‍💻 Author
 
 Dikembangkan dengan ❤️ menggunakan Laravel dan Vue.js
