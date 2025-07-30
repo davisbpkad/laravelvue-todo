@@ -107,6 +107,17 @@ const breadcrumbs: BreadcrumbItemType[] = [
                 <h2 class="text-lg font-semibold text-foreground mb-4">Quick Actions</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <a
+                        href="/todos?status=completed"
+                        class="flex items-center p-4 rounded-lg border border-border hover:bg-accent hover:text-accent-foreground transition-colors"
+                    >
+                        <CheckSquare class="w-5 h-5 mr-3 text-green-600" />
+                        <div>
+                            <p class="font-medium">View Completed Todos</p>
+                            <p class="text-sm text-muted-foreground">{{ stats.completed }} completed tasks</p>
+                        </div>
+                    </a>
+                    
+                    <a
                         href="/todos?status=incomplete"
                         class="flex items-center p-4 rounded-lg border border-border hover:bg-accent hover:text-accent-foreground transition-colors"
                     >
@@ -128,16 +139,7 @@ const breadcrumbs: BreadcrumbItemType[] = [
                         </div>
                     </a>
 
-                    <a
-                        href="/todos?status=completed"
-                        class="flex items-center p-4 rounded-lg border border-border hover:bg-accent hover:text-accent-foreground transition-colors"
-                    >
-                        <CheckSquare class="w-5 h-5 mr-3 text-green-600" />
-                        <div>
-                            <p class="font-medium">View Completed Todos</p>
-                            <p class="text-sm text-muted-foreground">{{ stats.completed }} completed tasks</p>
-                        </div>
-                    </a>
+                    
                 </div>
             </div>
 
