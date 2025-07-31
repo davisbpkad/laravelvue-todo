@@ -64,26 +64,42 @@
         <button
           @click="$emit('toggleComplete', todo)"
           :class="{
-            'bg-green-600 hover:bg-green-700': !todo.completed,
-            'bg-gray-600 hover:bg-gray-700': todo.completed,
+            'bg-green-400 hover:bg-green-500': !todo.completed,
+            'bg-gray-400 hover:bg-gray-400': todo.completed,
           }"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground h-9 px-3"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-base font-medium
+          shadow-[4px_4px_0_0_#000] border-2 border-black text-black
+          active:shadow-[2px_2px_0_0_#000] transition-all
+          hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]
+          h-9 px-3"
         >
-          {{ todo.completed ? 'Mark Incomplete' : 'Mark Complete' }}
+        <i
+          :class="[ 'mr-2', 'fas', todo.completed ? 'fa-times' : 'fa-check' ]"
+        ></i>
+          {{ todo.completed ? 'Undo' : 'Check' }}
         </button>
         
         <button
           @click="$emit('edit', todo)"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-3"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-base font-medium
+          shadow-[4px_4px_0_0_#000] border-2 border-black text-black
+          active:shadow-[2px_2px_0_0_#000] transition-all
+          hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]
+          h-9 px-3"
         >
-          Edit
+        <i class="fas fa-edit"></i>
         </button>
         
         <button
           @click="$emit('delete', todo)"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-destructive text-destructive-foreground hover:bg-destructive/90 h-9 px-3"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-base font-medium
+          bg-red-400 hover:bg-red-500
+          shadow-[4px_4px_0_0_#000] border-2 border-black text-black
+          active:shadow-[2px_2px_0_0_#000] transition-all
+          hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] 
+          h-9 px-3"
         >
-          Delete
+         <i class="fas fa-trash"></i>
         </button>
       </div>
     </div>

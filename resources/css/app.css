@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @import 'tw-animate-css';
+@import '@fortawesome/fontawesome-free/css/all.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -122,66 +123,66 @@
 }
 
 .dark {
-   /* Background utama - light gray gelap (dari 12% ke 18%) */
-    --background: hsl(0, 0%, 28%);
-    --foreground: hsl(0 0% 92%);
+    /* Background utama - Deep navy blue */
+    --background: hsl(220, 26%, 14%);
+    --foreground: hsl(220, 20%, 92%);
     
-    /* Card background - light gray medium (dari 16% ke 24%) */
-    --card: hsl(0 0% 24%);
-    --card-foreground: hsl(0 0% 92%);
+    /* Card background - Slightly lighter navy */
+    --card: hsl(220, 24%, 18%);
+    --card-foreground: hsl(220, 20%, 92%);
     
     /* Popover - sama dengan card */
-    --popover: hsl(0 0% 24%);
-    --popover-foreground: hsl(0 0% 92%);
+    --popover: hsl(220, 24%, 18%);
+    --popover-foreground: hsl(220, 20%, 92%);
     
-    /* Primary tetap terang untuk kontras */
-    --primary: hsl(0 0% 95%);
-    --primary-foreground: hsl(0 0% 12%);
+    /* Primary - Bright blue accent */
+    --primary: hsl(217, 91%, 60%);
+    --primary-foreground: hsl(220, 20%, 98%);
     
-    /* Secondary - light gray medium terang (dari 20% ke 28%) */
-    --secondary: hsl(0 0% 28%);
-    --secondary-foreground: hsl(0 0% 92%);
+    /* Secondary - Medium navy */
+    --secondary: hsl(220, 22%, 22%);
+    --secondary-foreground: hsl(220, 20%, 92%);
     
-    /* Muted - light gray terang (dari 22% ke 32%) */
-    --muted: hsl(0 0% 32%);
-    --muted-foreground: hsl(0 0% 75%);
+    /* Muted - Lighter navy for subtle elements */
+    --muted: hsl(220, 20%, 26%);
+    --muted-foreground: hsl(220, 15%, 65%);
     
-    /* Accent - sama dengan secondary */
-    --accent: hsl(0 0% 28%);
-    --accent-foreground: hsl(0 0% 92%);
+    /* Accent - Similar to secondary with slight variation */
+    --accent: hsl(220, 22%, 22%);
+    --accent-foreground: hsl(220, 20%, 92%);
     
-    /* Destructive tetap sama */
-    --destructive: hsl(0 84% 60%);
-    --destructive-foreground: hsl(0 0% 98%);
+    /* Destructive - Red for errors/delete actions */
+    --destructive: hsl(0, 84%, 60%);
+    --destructive-foreground: hsl(220, 20%, 98%);
     
-    /* Border - light gray yang visible (dari 25% ke 35%) */
-    --border: hsl(0 0% 35%);
-    --input: hsl(0 0% 26%);
-    --ring: hsl(0 0% 80%);
+    /* Border - Subtle navy border */
+    --border: hsl(220, 18%, 30%);
+    --input: hsl(220, 22%, 20%);
+    --ring: hsl(217, 91%, 60%);
     
-    /* Chart colors tetap sama */
-    --chart-1: hsl(220 70% 50%);
-    --chart-2: hsl(160 60% 45%);
-    --chart-3: hsl(30 80% 55%);
-    --chart-4: hsl(280 65% 60%);
-    --chart-5: hsl(340 75% 55%);
+    /* Chart colors - Professional palette */
+    --chart-1: hsl(217, 91%, 60%);
+    --chart-2: hsl(160, 60%, 45%);
+    --chart-3: hsl(30, 80%, 55%);
+    --chart-4: hsl(280, 65%, 60%);
+    --chart-5: hsl(340, 75%, 55%);
     
-    /* Sidebar - light gray (dari 14% ke 22%) */
-    --sidebar-background: hsl(0 0% 22%);
-    --sidebar-foreground: hsl(0 0% 92%);
-    --sidebar-primary: hsl(0 0% 95%);
-    --sidebar-primary-foreground: hsl(0 0% 12%);
+    /* Sidebar - Darkest navy for navigation */
+    --sidebar-background: hsl(220, 28%, 12%);
+    --sidebar-foreground: hsl(220, 20%, 85%);
+    --sidebar-primary: hsl(217, 91%, 60%);
+    --sidebar-primary-foreground: hsl(220, 20%, 98%);
     
-    /* Sidebar accent - light gray terang (dari 22% ke 30%) */
-    --sidebar-accent: hsl(0 0% 30%);
-    --sidebar-accent-foreground: hsl(0 0% 92%);
+    /* Sidebar accent - Hover states */
+    --sidebar-accent: hsl(220, 24%, 18%);
+    --sidebar-accent-foreground: hsl(220, 20%, 92%);
     
-    /* Sidebar border - light gray yang visible (dari 28% ke 38%) */
-    --sidebar-border: hsl(0 0% 38%);
-    --sidebar-ring: hsl(217.2 91.2% 59.8%);
+    /* Sidebar border - Subtle separation */
+    --sidebar-border: hsl(220, 18%, 25%);
+    --sidebar-ring: hsl(217, 91%, 60%);
     
-    /* Sidebar main - light gray medium (dari 16% ke 24%) */
-    --sidebar: hsl(0 0% 24%);
+    /* Sidebar main - Main sidebar color */
+    --sidebar: hsl(220, 28%, 12%);
 }
 
 @layer base {
@@ -193,4 +194,41 @@
         background-color: var(--background);
         color: var(--foreground);
     }
+}
+
+/* Add these neobrutalism utilities */
+@layer utilities {
+  /* Neobrutalism button shadows for dark mode */
+  .dark .shadow-neo-default {
+    box-shadow: 4px 4px 0px 0px rgba(255, 255, 255, 0.9);
+  }
+  
+  .dark .shadow-neo-hover {
+    box-shadow: 6px 6px 0px 0px rgba(255, 255, 255, 0.9);
+  }
+  
+  .dark .shadow-neo-active {
+    box-shadow: none;
+  }
+  
+  /* Dark mode button variants */
+  .dark .btn-neo-primary {
+    @apply bg-yellow-400 text-black border-white;
+    box-shadow: 4px 4px 0px 0px rgba(255, 255, 255, 0.9);
+  }
+  
+  .dark .btn-neo-primary:hover {
+    box-shadow: 6px 6px 0px 0px rgba(255, 255, 255, 0.9);
+    transform: translate(-2px, -2px);
+  }
+  
+  .dark .btn-neo-destructive {
+    @apply bg-red-500 text-white border-white;
+    box-shadow: 4px 4px 0px 0px rgba(255, 255, 255, 0.9);
+  }
+  
+  .dark .btn-neo-outline {
+    @apply bg-gray-800 text-white border-white;
+    box-shadow: 4px 4px 0px 0px rgba(255, 255, 255, 0.9);
+  }
 }

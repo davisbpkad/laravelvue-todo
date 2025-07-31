@@ -15,7 +15,11 @@
         </div>
         <button
           @click="showCreateForm = true"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-base font-bold
+          shadow-[4px_4px_0_0_#000] border-2 border-black text-black
+          hover:bg-green-400 active:shadow-[2px_2px_0_0_#000] transition-all
+          hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] focus:outline-none
+          px-6 py-2"
         >
           Add New Todo
         </button>
