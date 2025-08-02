@@ -4,23 +4,39 @@
   <AppLayout :breadcrumbs="breadcrumbs">
     <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4 overflow-x-auto">
       <!-- Header -->
-      <div class="flex justify-between items-center">
-        <div>
-          <h1 class="text-2xl font-semibold text-foreground">
+      <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+        <div class="flex-1">
+          <h1 class="text-xl sm:text-2xl font-semibold text-foreground">
             Todo Management
           </h1>
           <p v-if="isAdmin" class="text-sm text-muted-foreground mt-1">
             Admin View - You can see and manage all todos
           </p>
         </div>
+        
+        <!-- Mobile Button (full width) -->
         <button
           @click="showCreateForm = true"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-base font-bold
+            class="sm:hidden w-full inline-flex items-center justify-center whitespace-nowrap rounded-lg text-s font-bold
+            shadow-[3px_3px_0_0_#000] border-2 border-black text-black 
+            active:shadow-[1px_1px_0_0_#000] transition-all
+            hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] focus:outline-none
+            px-2 py-1 uppercase tracking-wider"
+          >
+          <i class="fas fa-plus mr-2"></i>
+          Add New Todo
+        </button>
+        
+        <!-- Desktop Button -->
+        <button
+          @click="showCreateForm = true"
+          class="hidden sm:inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-bold
           shadow-[4px_4px_0_0_#000] border-2 border-black text-black
-          hover:bg-green-400 active:shadow-[2px_2px_0_0_#000] transition-all
-          hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] focus:outline-none
-          px-6 py-2"
+          active:shadow-[1px_1px_0_0_#000] transition-all
+          hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] focus:outline-none
+          px-4 py-2 uppercase tracking-wider"
         >
+          <i class="fas fa-plus mr-2"></i>
           Add New Todo
         </button>
       </div>
