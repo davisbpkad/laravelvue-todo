@@ -8,18 +8,20 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('home');
 
+// Authentication routes
 Route::middleware(['auth', 'verified'])->group(function () {
+   // Dashboard route
     Route::get('dashboard', function () {
         $user = auth()->user();
         $baseQuery = $user->isAdmin() ? \App\Models\Todo::query() : $user->todos();
-        
+        // Fetch statistics for the dashboard
         $stats = [
             'total' => (clone $baseQuery)->count(),
             'completed' => (clone $baseQuery)->where('completed', true)->count(),
             'incomplete' => (clone $baseQuery)->where('completed', false)->count(),
             'overdue' => (clone $baseQuery)->where('due_date', '<', now())->where('completed', false)->count(),
         ];
-        
+        // Render the dashboard view with stats
         return Inertia::render('Dashboard', [
             'stats' => $stats,
             'isAdmin' => $user->isAdmin(),
